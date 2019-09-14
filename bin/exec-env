@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+function slib_path() {
+  local -a dirs=(
+    /usr/local/slib
+    /usr/local/lib/slib
+    /opt/local/lib/slib
+  )
+  for dir in ${dirs[@]}; do
+    if [[ -d "$dir" ]]; then
+      echo "$dir"
+      return 0
+    fi
+  done
+}
+
+if [[ -z "$SCHEME_LIBRARY_PATH" ]]; then
+  slib_path="$(slib_path)"
+  [[ -n "$slib_path" ]] && export SCHEME_LIBRARY_PATH="$slib_path"
+fi
