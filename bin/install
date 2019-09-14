@@ -15,7 +15,7 @@ function install_gauche() {
   fi
 
   local download_url="$(download_url "$version")"
-  curl -sL "$download_url" | tar -xf - -C "$workdir"
+  curl -sL "$download_url" | tar -xzf - -C "$workdir"
   (
     cd "$workdir/Gauche-${version}"
     ./configure --quiet --prefix "$install_path"
