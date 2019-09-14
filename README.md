@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sakuro/asdf-gauche.svg?branch=master)](https://travis-ci.org/sakuro/asdf-gauche)
+
 [Gauche](http://practical-scheme.net/gauche/index.html) plugin for
 asdf version manager
 
