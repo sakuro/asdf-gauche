@@ -1,6 +1,11 @@
 language: c
 script: asdf plugin-test gauche $TRAVIS_BUILD_DIR 'gosh -V'
 before_script:
+  - if [ "$TRAVIS_OS_NAME" = osx ]; then export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"; fi
+  - if [ "$TRAVIS_OS_NAME" = osx ]; then export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"; fi
+  - if [ "$TRAVIS_OS_NAME" = osx ]; then export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"; fi
+  - if [ "$TRAVIS_OS_NAME" = osx ]; then export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"; fi
+
   - git clone https://github.com/asdf-vm/asdf.git asdf
   - . asdf/asdf.sh
 os:
