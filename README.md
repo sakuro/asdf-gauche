@@ -21,7 +21,7 @@ on how to install & manage versions of Gauche.
 If you have [SLIB](https://people.csail.mit.edu/jaffer/SLIB) installed
 in one of the following directories:
 
-- `$(brew --prefix)/lib/slib` (only if you are using Homebrew[*])
+- `$(brew --prefix slib)/lib/slib` (only if you are using Homebrew[*])
 - `/usr/local/slib`
 - `/usr/local/lib/slib`
 - `/opt/local/lib/slib`
