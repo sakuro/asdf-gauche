@@ -21,12 +21,15 @@ on how to install & manage versions of Gauche.
 If you have [SLIB](https://people.csail.mit.edu/jaffer/SLIB) installed
 in one of the following directories:
 
-- /usr/local/slib
-- /usr/local/lib/slib
-- /opt/local/lib/slib
+- `$(brew --prefix)/lib/slib` (only if you are using Homebrew[*])
+- `/usr/local/slib`
+- `/usr/local/lib/slib`
+- `/opt/local/lib/slib`
 
 the interpreter automatically detects where it is and sets
 `SCHEME_LIBRARY_PATH` accordingly.
+
+[*]: The formula of slib is in [sakuro/formulae](https://github.com/sakuro/homebrew-formulae)
 
 ```scheme
 (sys-getenv "SCHEME_LIBRARY_PATH") #; "..path..to../slib"
