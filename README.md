@@ -6,7 +6,7 @@ asdf version manager
 # Install
 
 ```bash
-asdf plugin-add gauche https://github.com/sakuro/asdf-gauche.git
+asdf plugin-add gauche
 ```
 
 # Use
