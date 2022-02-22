@@ -2,11 +2,6 @@
 
 set -eu -o pipefail
 
-release_url="https://sourceforge.net/projects/gauche/files/Gauche/"
+release_url="https://api.github.com/repos/shirok/Gauche/releases"
 
-curl -sL "$release_url" |
-grep -Eo 'Gauche-([0-9.]+).tgz' |
-sed -e 's/^Gauche-//' -e 's/\.tgz$//' |
-LC_ALL=C sort -t. -k1,1 -k2,2n -k 3,3n -k 4,4n |
-uniq |
-tr '\12' ' '
+curl -fsS $release_url | jq -rM '.[] | .tag_name' | sed -e 's/release//; s/_\([0-9]\)/.\1/g; s/_\(.*\)/-\1/' | tr '\012' ' '
