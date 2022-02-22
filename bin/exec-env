@@ -6,7 +6,7 @@ function slib_path() {
     /usr/local/lib/slib
     /opt/local/lib/slib
   )
-  if type -P brew >/dev/null && brew info slib >/dev/null; then
+  if type -P brew >/dev/null && brew list | grep --line-regexp slib; then
     dirs=($(brew --prefix slib)/lib/slib ${dirs[@]})
   fi
   for dir in ${dirs[@]}; do
