@@ -26,9 +26,8 @@ function install_gauche() {
 
 
 function download_url() {
-  local version="$1"
-  tag=release$(echo $1 | sed 's/[.-]/_/g')
-  local relase_id=$(curl -s https://api.github.com/repos/shirok/Gauche/releases/tags/$tag | jq -rM .id)
+  local tag=release$(echo $1 | sed 's/[-.]/_/g')
+  local release_id=$(curl -s https://api.github.com/repos/shirok/Gauche/releases/tags/$tag | jq -rM .id)
   local asset_id=$(curl -s https://api.github.com/repos/shirok/Gauche/releases/$release_id/assets | jq '.[] | select(.name | endswith(".tgz")) | .id')
   local download_url=$(curl https://api.github.com/repos/shirok/Gauche/releases/assets/$asset_id | jq -rM .browser_download_url)
   echo $download_url
